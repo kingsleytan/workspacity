@@ -1,0 +1,9 @@
+<h1>Services</h1>
+
+<% @services.each do |service| %>
+  <div class="service">
+    <h3><%= service.title %></h3>
+    <h5><%= service.description %></h5>
+    <%= link_to service.title, service_path(service) %>
+  </div>
+<% end %>

@@ -5,6 +5,7 @@ class ServicesController < ApplicationController
   end
 
   def show
+    @service = Service.find_by(id: params[:id])
   end
 
   def new
