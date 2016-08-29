@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :packages do
       resources :reviews
     end
+  end
   resources :password_resets, only: [:new, :create, :edit, :update]
 end
