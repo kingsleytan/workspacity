@@ -1,0 +1,242 @@
+.background {
+  background-image: asset-url("product.jpeg");
+  height: calc(100vh - 52px);
+  width: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.h {
+  font-size: 20px;
+  align-content: center;
+  color: black;
+}
+
+h1 {
+    font-size: 30px;
+    color: white;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .service {
+    background-color: white;
+    height: 20vh;
+    width: 100%;
+    background-position: 50% 90%;
+    background-: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .how {
+    background-color: #CFCFCF;
+    height: 75vh;
+    width: 100%;
+    background-position: 50% 90%;
+    background-: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .app {
+    height: 75vh;
+    width: 100%;
+    background-position: 50% 90%;
+    background-: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .client {
+    background-color: #CFCFCF;
+    height: 20vh;
+    width: 100%;
+    background-position: 50% 90%;
+    background-: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sitemap {
+    background-color: black;
+    height: 75vh;
+    width: 100%;
+    background-position: 50% 90%;
+    background-: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer {
+    background-color: black;
+    height: 5vh;
+    width: 100%;
+    background-position: 50% 90%;
+    background-: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .features-container {
+    margin: 50px 0;
+  }
+
+  .feature-title {
+    color: white;
+  }
+
+  .features {
+    display: flex;
+    // flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 50px auto;
+    justify-content: center;
+  }
+
+  .feature {
+    flex: 0 0 280px;
+    margin: 20px 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .feature2 {
+    flex: 0 0 280px;
+    margin: 20px 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  hr {
+    max-width: 50px;
+    border-color: #CFCFCF;
+    border-width: 3px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  h4 {
+    font-size: 8px;
+    color: white;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+
+  .light-red {
+    color: #CFCFCF;
+  }
+
+  .image-box {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .column-1 {
+    flex: 0 0 25%;
+    position: relative;
+  }
+
+  .column-1:hover .invisible-layout {
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .invisible-layout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #CFCFCF;
+    opacity: 0.5;
+  }
+
+  .img-lock {
+    width: 100%;
+    height: 300px;
+  }
+
+  .contact {
+    padding: 100px 0;
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .contact-title {
+    color: #CFCFCF;
+  }
+
+  .contact-box {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .contact-icon {
+    flex: 0 0 280px;
+    margin: 20px 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media all and (max-width: 1199px) {
+    .features {
+      max-width: 600px;
+    }
+  }
+
+  @media all and (max-width: 1199px) {
+    .image-box {
+      justify-content: center;
+    }
+
+    .column-1 {
+      flex: 0 0 50%;
+    }
+  }
+
+  @media all and (max-width: 500px) {
+    .column-1 {
+      flex: 0 0 100%;
+    }
+  }
