@@ -1,0 +1,31 @@
+.about{
+  .background-about{
+    background-image: asset-url("boat.jpeg");
+    height: 100vh;
+    width: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .left-division{
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 66.66667%;
+    margin-left: 33.33333%;
+    float: left;
+  }
+  
+
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 50px auto;
+    justify-content: center;
+  }
+}
