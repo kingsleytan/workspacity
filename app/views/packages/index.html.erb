@@ -1,0 +1,9 @@
+<h2>Packages</h2>
+
+<% @packages.each do |package| %>
+  <div class="package">
+    <h3><%= package.title %></h3>
+    <h5><%= package.description %></h5>
+    <%= link_to package.title, package_path(package) %>
+  </div>
+<% end %>
