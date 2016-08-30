@@ -1,24 +1,34 @@
-# README
+# Workspacity
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a marketplace for creative industry, a new class of professional.
 
-Things you may want to cover:
+==========================================================================
 
-* Ruby version
+Model:
 
-* System dependencies
+Users
+- username:string
+- email:string
+- password_digest:string
+- image:string
+- role:integer
+- password_reset_token:string
+- password_reset_at:datetime
 
-* Configuration
+Services
+- type:string
 
-* Database creation
+Package
+- title:string
+- description:string
+- price:float
+- location:string
+- image:string
+- service_id:integer
+- user_id:integer
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Review
+- body:string
+- image:string
+- user_id:integer
+- package_id:integer

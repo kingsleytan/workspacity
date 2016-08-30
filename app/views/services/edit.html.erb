@@ -1,0 +1,14 @@
+<%= form_for(@service, url: services_path, html: { id: "service-edit-form" }) do |f| %>
+  <h1 class="text-center">
+    Edit Service
+  </h1>
+
+  <div class="form-group">
+    <h4> <%= f.label :type_field, "Service" %> </h4>
+    <%= f.text_field :type, required: true, id: "service_type_field", class: 'form-control' %>
+  </div>
+
+  <div class="form-group text-center">
+    <%= f.submit "Edit New Service", class: "btn btn-success btn-lg" %>
+  </div>
+<% end %>
