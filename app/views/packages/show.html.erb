@@ -1,0 +1,3 @@
+<h1><%= @package.title %></h1>
+<p><%= @package.description %></p>
+  <%= link_to "Delete", package_path(@package), method: :delete, data: { confirm: "Delete?" } %>
