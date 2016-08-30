@@ -1,0 +1,37 @@
+<div class="packages">
+  <div class="new-form">
+
+
+
+  <%= form_for(@package, url: packages_path, html: { id: "package-create-form" }) do |f| %>
+  <h1 class="text-center">
+    Create Package
+  </h1>
+
+  <div class="form-group">
+    <h4> <%= f.label :title_field, "Name of package" %> </h4>
+    <%= f.text_field :title, required: true, id: "package_type_field", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <h4> <%= f.label :description_field, "Description" %> </h4>
+    <%= f.text_field :description, required: true, id: "package_description_field", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <h4> <%= f.label :price_field, "Price" %> </h4>
+    <%= f.number_field :price, required: true, id: "package_price_field", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <h4> <%= f.label :location_field, "Location" %> </h4>
+    <%= f.text_field :location, id: "package_location_field", class: 'form-control' %>
+  </div>
+
+
+  <div class="form-group text-center">
+    <%= f.submit "Create New Package", class: "btn btn-success btn-lg" %>
+  </div>
+  <% end %>
+</div>
+</div>

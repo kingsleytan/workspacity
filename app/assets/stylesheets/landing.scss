@@ -1,22 +1,23 @@
-.background {
-  background-image: asset-url("product.jpeg");
-  height: calc(100vh - 52px);
-  width: 100%;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+.landing{
+  .background {
+    background-image: asset-url("product.jpeg");
+    height: calc(100vh - 52px);
+    width: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.h {
-  font-size: 20px;
-  align-content: center;
-  color: black;
-}
+  .h {
+    font-size: 20px;
+    align-content: center;
+    color: black;
+  }
 
-h1 {
+  h1 {
     font-size: 30px;
     color: white;
   }
@@ -240,3 +241,4 @@ h1 {
       flex: 0 0 100%;
     }
   }
+}
