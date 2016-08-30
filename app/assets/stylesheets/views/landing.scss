@@ -1,4 +1,5 @@
-.background {
+.landing{
+  .background {
   background-image: asset-url("product.jpeg");
   height: calc(100vh - 52px);
   width: 100%;
@@ -239,4 +240,5 @@ p {
   .column-1 {
     flex: 0 0 100%;
   }
+}
 }
