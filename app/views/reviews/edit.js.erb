@@ -1,0 +1,7 @@
+$('#review-formholder-<%= @review.id %>').html("<%=j render partial: 'reviews/review_update_form', locals: { package: @package, review: @review } %>")
+$('#review-<%= @review.id %>').css("display","none");
+
+$('.backbtn').on('click', function() {
+  $('#review-formholder-<%= @review.id %>').html("");
+  $('#review-<%= @review.id %>').css("display","block");
+})

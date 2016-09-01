@@ -1,0 +1,60 @@
+<div class="service <%=extra_class%>" id="main-review-<%= review.id %>">
+
+  <div id="review-formholder-<%= review.id %>">
+
+  </div>
+
+  <div id="review-<%= review.id %>">
+      <div class="img-holder">
+        <%= image_tag comment.image, class: "img-responsive" %>
+      </div>
+      <h5>
+        <%= review.body %>
+      </h5>
+
+      <div class="control-panel">
+
+          <% if review.user == current_user || current_user&.admin? || current_user&.moderator? %>
+            <%= link_to 'Edit Review', edit_service_review_path(review.package, package, review), remote: true, class: "btn btn-info btn-lg mar20top btn-edit" %>
+          <% end %>
+
+          <% if review.user == current_user || current_user&.admin? || current_user&.moderator? %>
+            <%= link_to "Delete", package_review_path(review.package, package, review), class: "btn btn-danger btn-lg mar20top btn-delete", remote: true, method: :delete, data: { confirm: "Delete #{comment.body}?" } %>
+          <% end %>
+      </div>
+
+      <div class="review-author">
+        <% user_image = review.user.image.thumb.url || "" %>
+
+
+        <div class="poster-image">
+            <%= image_tag user_image %>
+        </div>
+
+        <div class="poster-date">
+          <div class="poster"><%= review.user.username %></div>
+          <div class="posted-date">Posted: <%= review.created_at %></div>
+        </div>
+
+        <div class="vote-btn" id="vote-down">
+            <%= link_to downvote_path(review_id: review.id), method: :post, remote: true do %>
+              <%= fa_icon 'thumbs-o-down 4x', class: "btn" %>
+            <% end %>
+
+            <div class="vote-text"><%= review.negative_votes %></div>
+        </div>
+
+        <div class="vote-btn" id="vote-up">
+
+          <%= link_to upvote_path(review_id: review.id), method: :post, remote: true do %>
+            <%= fa_icon 'thumbs-o-up 4x', class: "btn" %>
+          <% end %>
+
+          <div class="vote-text"><%= review.positive_votes %></div>
+        </div>
+
+      </div>
+
+  </div>
+
+</div>
