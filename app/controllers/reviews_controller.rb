@@ -30,6 +30,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+
     @service = Service.friendly.find(params[:service_id]
     @review = Review.find_by(id: params[:id])
     authorize @review
@@ -50,7 +51,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-
     @service = Service.friendly.find(params[:service_id]
     @review = Review.find_by(id: params[:id])
     authorize @review
@@ -59,14 +59,12 @@ class ReviewsController < ApplicationController
       ReviewBroadcastJob.perform_now("destroy", @review)
       flash.now[:success] = "Your review was deleted."
     end
-
   end
 
   private
-
   def review_params
+
     params.require(:review).permit(:body, :image)
   end
-
 
 end
