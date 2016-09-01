@@ -1,62 +1,70 @@
 class ReviewsController < ApplicationController
+  respond_to :js
+  before_action :authenticate!, only: [:index, :create, :edit, :update, :new, :destroy]
 
   def index
-    @packages = Package.includes(:packages).find(params[:package_id])
-    @reviews = Review.all
-    if params[:search]
-      @reviews = Review.search(params[:search]).order("created_at DESC")
-    else
-      @reviews = Review.all.order('created_at DESC')
-    end
+
+    @service = Service.friendly.find(params[:service_id])
+    @review = @service.reviews.order(created_at: :desc).page params[:page]
+    @review = Review.new
+    authorize @review
   end
 
   def new
-    @package = Package.find(params[:package_id])
+    @service = Service.friendly.find(params[:service_id])
     @review = Review.new
+    authorize @review
   end
 
   def create
-    @package = Package.find(params[:package_id])
-    @review = current_user.reviews.build(review_params.merge(package_id: params[:package_id]))
+    @service = Service.friendly.find(params[:service_id])
+    @review = current_user.reviews.build(review_params.merge(service_id: @service.id))
+    @new_review = Review.new
 
     if @review.save
-      flash[:success] = "You've created a new review."
-      redirect_to package_reviews_path(@package)
+      ReviewBroadcastJob.perform_later("create", @review)
+      flash.now[:success] = "Your review was posted."
     else
-      flash[:danger] = @review.errors.full_messages
-      redirect_to new_package_review_path(@package)
+      flash.now[:danger] = @review.errors.full_messages
     end
   end
 
   def edit
-    @review = Review.find(params[:id])
-    @package = @review.package
 
+    @service = Service.friendly.find(params[:service_id]
+    @review = Review.find_by(id: params[:id])
+    authorize @review
   end
 
   def update
-
-    @review = Review.find(params[:id])
-    @package = @review.package
+    @service = Service.friendly.find(params[:service_id]
+    @review = Review.find_by(id: params[:id])
+    authorize @review
 
     if @review.update(review_params)
-      redirect_to package_reviews_path(@package)
+      ReviewBroadcastJob.perform_later("update", @review)
+      flash.now[:success] = "Your review was updated."
     else
-      redirect_to edit_package_review_path(@package, @review)
+      flash.now[:danger] = @review.errors.full_messages
     end
+
   end
 
   def destroy
-    @review = review.find_by(id: params[:id])
-    @package = @review.package
+    @service = Service.friendly.find(params[:service_id]
+    @review = Review.find_by(id: params[:id])
+    authorize @review
+
     if @review.destroy
-      redirect_to package_reviews_path(@package)
+      ReviewBroadcastJob.perform_now("destroy", @review)
+      flash.now[:success] = "Your review was deleted."
     end
   end
 
   private
-
   def review_params
-    params.require(:review).permit(:image, :body)
+
+    params.require(:review).permit(:body, :image)
   end
+
 end

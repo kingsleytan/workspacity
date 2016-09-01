@@ -10,10 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901034644) do
+
+ActiveRecord::Schema.define(version: 20160830060902) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
 
   create_table "ordered_items", force: :cascade do |t|
     t.integer  "item_id"
@@ -25,6 +28,12 @@ ActiveRecord::Schema.define(version: 20160901034644) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,11 +70,11 @@ ActiveRecord::Schema.define(version: 20160901034644) do
     t.string   "email"
     t.string   "pasword_digest"
     t.string   "image"
-    t.integer  "role"
+    t.integer  "role",                 default: 0
     t.datetime "password_reset_at"
     t.string   "password_reset_token"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
 end
