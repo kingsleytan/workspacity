@@ -1,0 +1,5 @@
+$('#flash-messages-container').html("<%=j render partial: 'partials/flash_messages' %>")
+
+<% if @review.persisted? %>
+$('#review-formholder-<%= @review.id %>').html("");
+<% end %>

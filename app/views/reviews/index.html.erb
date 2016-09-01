@@ -1,0 +1,29 @@
+<div class="packages reviews" id="package-page" data-id="<%= @post.id %>">
+
+  <h1>
+    <%= @package.title %>
+  </h1>
+
+  <div class="service-holder">
+
+    <p><%= @package.body %></p>
+
+    <%= link_to 'Back to Package', packages_path(@package), class: "btn btn-warning btn-lg mar20top mar20bottom" %>
+
+    <div id="reviews-form-container">
+      <%= render partial: "review_form", locals: {package: @package, review: @review} %>
+    </div>
+
+    <div id="reviews">
+      <% @reviews.each do |review| %>
+        <%= render partial: "review", locals: { image: review.image, review: review, package: @package, extra_class: "" } %>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div id="pagination">
+    <%= paginate @reviews %>
+  </div>
+
+</div>

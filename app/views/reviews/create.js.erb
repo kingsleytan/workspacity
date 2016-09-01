@@ -1,0 +1,5 @@
+$('#flash-messages-container').html("<%=j render partial: 'partials/flash_messages' %>")
+
+<% if @review.persisted? %>
+  $('#reviews-form-container').html("<%=j render partial: 'reviews/review_form', locals: { package: @package, review: @new_review } %>")
+<% end %>
