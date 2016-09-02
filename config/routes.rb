@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   match 'auth/:provider/callback', to: 'oauth#create', via: [:get, :post]
-  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match 'auth/failure', to: 'oauth#failure', via: [:get, :post]
   match 'signout', to: 'oauth#destroy', as: 'signout', via: [:get, :post]
 end

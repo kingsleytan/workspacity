@@ -1,8 +1,12 @@
 class OauthController < ApplicationController
   def create
-    user = User.from_omniauth(env["omniauth.auth"])
+    user = User.from_omniauth(request.env["omniauth.auth"])
     session[:user_id] = user.id
     redirect_to root_url
+  end
+
+  def failure
+    render :create
   end
 
   def destroy

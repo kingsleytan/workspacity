@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
                &.authenticate(user_params[:password])
 
     if user
-      session[:id] = user.id
+      session[:user_id] = user.id
       # session[:id] = user.slug
       flash[:success] = "Welcome back #{user.username}"
       redirect_to root_path
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:id)
+    session.delete(:user_id)
     flash[:success] = "You've been logged out"
     redirect_to root_path
   end
