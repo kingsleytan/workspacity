@@ -27,6 +27,9 @@ group :development, :test do
   gem 'pry'
 end
 
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
+
 gem 'gmaps4rails'
 
 gem 'geocoder'
