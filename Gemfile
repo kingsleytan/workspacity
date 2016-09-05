@@ -44,6 +44,7 @@ gem 'redis'
 gem 'kaminari'
 
 gem 'remotipart', github: 'sr3d/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
 
 gem 'responders'
 
