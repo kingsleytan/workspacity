@@ -1,13 +1,14 @@
 class User < ApplicationRecord
-  extend FriendlyId
-  friendly_id :username, use: :slugged
+  # extend FriendlyId
+  # friendly_id :username, use: :slugged
 
   has_secure_password
   has_many :services
   has_many :packages
   has_many :reviews
   has_many :votes
-  mount_uploader :image, ImageUploader
+  has_many :orders
+  # mount_uploader :image, ImageUploader
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email,
@@ -19,10 +20,10 @@ class User < ApplicationRecord
             presence: true,
             uniqueness: {message: "This username already exist."}
 
-  validate :image_size
+  # validate :image_size
 
   enum role: [:user, :moderator, :admin]
-  before_save :update_slug
+  # before_save :update_slug
 
   private
 

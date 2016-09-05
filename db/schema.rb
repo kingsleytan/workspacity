@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20160830060902) do
-
+ActiveRecord::Schema.define(version: 20160903084647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ordered_items", force: :cascade do |t|
     t.integer  "item_id"
@@ -28,26 +31,26 @@ ActiveRecord::Schema.define(version: 20160830060902) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "status",     default: 0
+    t.decimal  "total"
+    t.string   "bill_id"
+    t.string   "bill_url"
+    t.datetime "due_at"
+    t.datetime "paid_at"
   end
 
   create_table "packages", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.float    "price"
+    t.decimal  "price",       precision: 8, scale: 2
     t.string   "location"
     t.string   "image"
     t.integer  "service_id"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -68,7 +71,7 @@ ActiveRecord::Schema.define(version: 20160830060902) do
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
-    t.string   "pasword_digest"
+    t.string   "password_digest"
     t.string   "image"
     t.integer  "role",                 default: 0
     t.datetime "password_reset_at"

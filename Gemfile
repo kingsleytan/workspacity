@@ -27,6 +27,8 @@ group :development, :test do
   gem 'pry'
 end
 
+gem 'httparty'
+
 gem 'gmaps4rails'
 
 gem 'geocoder'

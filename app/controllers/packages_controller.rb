@@ -48,6 +48,6 @@ class PackagesController < ApplicationController
   private
 
   def package_params
-    params.require(:package).permit(:title, :description, :price, :location, :image, :service_id)
+    params.require(:package).permit(:title, :description, :price, :location)
   end
 end

@@ -4,6 +4,11 @@
   <div class="package">
     <h3><%= package.title %></h3>
     <h5><%= package.description %></h5>
-    <%= link_to package.title, package_path(package) %>
+    <h5><%= package.price %></h5>
+    <h5><%= package.location %></h5>
+    <%= link_to 'Add to cart', add_package_path(id: package, quantity: 1), method: :post, class: "btn btn-success btn-lg" %>
+    <%= link_to 'Show', package_path(package), class: "btn btn-success btn-lg" %>
+    <%= link_to 'Edit', edit_package_path(package), class: "btn btn-success btn-lg" %>
+    <%= link_to 'Destroy', package_path(package), method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-success btn-lg"%>
   </div>
 <% end %>

@@ -1,0 +1,9 @@
+<h2>Orders</h2>
+
+<% @orders.each do |order| %>
+  <div class="order">
+    <h3><%= order.title %></h3>
+    <h5><%= order.description %></h5>
+    <%= link_to order.title, order_path(order) %>
+  </div>
+<% end %>

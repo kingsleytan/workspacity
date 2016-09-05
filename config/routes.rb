@@ -8,7 +8,20 @@ Rails.application.routes.draw do
   resources :packages do
     resources :reviews
   end
-  resources :orders
+  resources :orders, only: [:new, :create, :show]
   resources :ordered_items
   resources :password_resets, only: [:new, :create, :edit, :update]
+
+  resources :shippings
+
+  get :cart, to: "carts#show"
+  post :add_package, to: "carts#add_package"
+  delete :remove_package, to: "carts#remove_package"
+  delete :clear_cart, to: "carts#clear_cart"
+  patch :update_package, to: "carts#update_package"
+
+  scope '/webhooks', controller: :webhooks do
+    post 'payment-callback', to: 'webhooks#payment_callback', as:
+      :payment_callback
+  end
 end
