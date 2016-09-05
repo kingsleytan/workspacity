@@ -27,6 +27,8 @@ group :development, :test do
   gem 'pry'
 end
 
+gem 'devise'
+
 gem 'searchkick'
 
 gem 'httparty'
@@ -83,7 +85,3 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem "font-awesome-rails"
-
-gem "carrierwave"

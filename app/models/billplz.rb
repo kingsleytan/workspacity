@@ -1,7 +1,7 @@
 class Billplz
   def self.create_bill_for(order)
     order = order
-    HTTParty.post('https://www.billplz.com/api/v2/bills'.to_str,
+    HTTParty.post('https://www.billplz.com/api/v3/bills'.to_str,
       headers: { "Content-Type" => 'application/json', 'Accept' => 'application/json'},
       body: {
         collection_id:    "workspacity",
