@@ -7,13 +7,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(name: user_params[:name])
+    user = User.find_by(email: user_params[:email])
                &.authenticate(user_params[:password])
 
     if user
       session[:id] = user.id
       # session[:id] = user.slug
-      flash[:success] = "Welcome back #{user.username}"
+      flash[:success] = "Welcome back #{user.name}"
       redirect_to root_path
     else
       flash[:danger] = "Error logging in"
@@ -31,6 +31,6 @@ class SessionsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :password)
+    params.require(:user).permit(:email, :password)
   end
 end

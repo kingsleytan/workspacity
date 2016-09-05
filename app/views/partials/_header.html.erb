@@ -11,8 +11,14 @@
         <ul class="nav navbar-nav navbar-right">
           <li id="About"><%= link_to "About", about_path %></li>
           <li id="New_service"><%= link_to "List your service", new_package_path %></li>
-          <li id="New_user"><%= link_to "Login", new_session_path %></li>
-          <li id="New_user"><%= link_to "Register", new_user_path %></li>
+          
+          <% if current_user %>
+
+          <li id="New_user"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+          <li id="New_user"><%= link_to "Login", new_user_session_path %></li>
+          <li id="New_user"><%= link_to "Register", new_user_registration_path %></li>
+            <% end %>
         </ul>
       </div>
 

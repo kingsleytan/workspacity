@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-   has_secure_password
+  #  has_secure_password
    has_many :services
    has_many :packages
    has_many :reviews
@@ -18,9 +18,9 @@ class User < ApplicationRecord
              presence: true,
              uniqueness: {message: "This email already exist."}
 
-   validates :username,
-             presence: true,
-             uniqueness: {message: "This username already exist."}
+  #  validates :name,
+  #           #  presence: true,
+  #            uniqueness: {message: "This username already exist."}
 
    # validate :image_size
 
