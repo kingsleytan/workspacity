@@ -23,6 +23,7 @@ class CartsController < ApplicationController
         quantity
       end
       @packages << package
+      @totalprice += package.price.to_f * package.quantity.to_i
     end
   end
 

@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.new(order_params)
+    # @order = Order.create(total: params[:totalprice], user_id: params[:user_id])
     if @order.save
       @bill = Billplz.create_bill_for(@order)
       @order.update_attributes(bill_id: @bill.parsed_response['id'], bill_url: @bill.parsed_response['url'])

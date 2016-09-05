@@ -35,7 +35,7 @@
 
 <% if @packages.empty? %>
 <% else %>
-  <!-- Order Total: <%= number_to_currency(total, :unit => 'RM') %> -->
+  Order Total: <%= @totalprice %>
 <% end %>
 
 <a href="#" class="button">Place Order</a>
