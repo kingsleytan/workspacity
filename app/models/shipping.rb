@@ -13,7 +13,7 @@ class Shipping < ApplicationRecord
       item_number: package.id,
       quantity: '1'
     }
-    "#{Rails.application.secrets.paypal_host}/cgi-bin/webscr?" + values.to_query
+  
   end
 
 end

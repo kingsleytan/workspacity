@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(username: user_params[:username])
+    user = User.find_by(name: user_params[:name])
                &.authenticate(user_params[:password])
 
     if user
@@ -31,6 +31,6 @@ class SessionsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:name, :password)
   end
 end
