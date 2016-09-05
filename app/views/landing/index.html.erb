@@ -6,12 +6,19 @@
     </div>
   </div>
 
+  <div class="container">
+      <%= form_tag(packages_path, method: "get", id: "search-form") do %>
+        <%= search_field_tag :search, params[:search], placeholder: "Search for packages" %>
+        <label for="search"><i class="fa fa-search fa-2x" aria-hidden="true"></i></label>
+      <% end %>
+    </div>
+
   <div class="service">
     <section class="features-container">
       <section class="features">
         <div class="feature text-center">
           <%= fa_icon 'gift 2x', color: 'dark grey'%>
-          <p class="text-muted"> Wedding </p> 
+          <p class="text-muted"> Wedding </p>
         </div>
 
         <div class="feature text-center">

@@ -27,6 +27,8 @@ group :development, :test do
   gem 'pry'
 end
 
+gem 'searchkick'
+
 gem 'httparty'
 
 gem 'gmaps4rails'
@@ -44,10 +46,6 @@ gem 'remotipart', github: 'sr3d/remotipart'
 gem 'responders'
 
 gem "pundit"
-
-group :development do
-    gem 'letter_opener'
-  end
 
 gem 'figaro'
 

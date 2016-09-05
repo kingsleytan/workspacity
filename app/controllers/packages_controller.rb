@@ -1,7 +1,12 @@
 class PackagesController < ApplicationController
 
   def index
-    @packages = Package.all
+    if params[:search]
+      Package.reindex
+      @packages = Package.search(params[:search])
+    else
+      @packages = Package.all.order(created_at: :desc)
+    end
   end
 
   def show
