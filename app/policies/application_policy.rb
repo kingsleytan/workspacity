@@ -2,38 +2,44 @@ class ApplicationPolicy
   attr_reader :user, :record
 
   def initialize(user, record)
-    raise Pundit::NotAuthorizedError, "must be logged in" unless user
     @user = user
     @record = record
-end
+  end
+
+  def dashboard?
+    user.admin?
   end
 
   def index?
-    false
+    dashboard?
   end
 
   def show?
-    scope.where(:id => record.id).exists?
-  end
-
-  def create?
-    false
+    scope.where(:id => record.id).exists? && dashboard?
   end
 
   def new?
-    create?
-  end
-
-  def update?
-    false
+    dashboard?
   end
 
   def edit?
-    update?
+    dashboard?
   end
 
   def destroy?
-    false
+    dashboard?
+  end
+
+  def export?
+    dashboard?
+  end
+
+  def history?
+    dashboard?
+  end
+
+  def show_in_app?
+    dashboard?
   end
 
   def scope

@@ -2,7 +2,7 @@ class Review < ApplicationRecord
   has_many :votes
   belongs_to :service
   belongs_to :user
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
 
   validates :body, length: { minimum: 5 }, presence: true
   paginates_per 8
