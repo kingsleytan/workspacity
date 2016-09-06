@@ -1,7 +1,12 @@
 class PackagesController < ApplicationController
 
   def index
-    @packages = Package.all
+    if params[:search]
+      Package.reindex
+      @packages = Package.search(params[:search])
+    else
+      @packages = Package.all.order(created_at: :desc)
+    end
   end
 
   def show
@@ -48,6 +53,6 @@ class PackagesController < ApplicationController
   private
 
   def package_params
-    params.require(:package).permit(:title, :description, :price, :location, :image, :service_id)
+    params.require(:package).permit(:title, :description, :price, :location)
   end
 end

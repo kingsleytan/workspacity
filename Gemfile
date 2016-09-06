@@ -25,6 +25,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem "carrierwave"
+gem 'devise'
+gem 'searchkick'
+gem 'httparty'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'rails_12factor'
@@ -52,5 +56,3 @@ group :development, :test do
   gem 'faker'
   gem 'pry'
 end
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
