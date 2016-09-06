@@ -1,0 +1,50 @@
+<h1>Your Cart</h1>
+
+<% if @packages.empty? %>
+  Your Cart Is Currently Empty
+<% else %>
+<%= link_to "Empty your cart", clear_cart_path, method: :delete %>
+<% end %>
+
+<% total = 0 %>
+
+<ul>
+<% @packages.each do |package| %>
+  <li>
+    <%= link_to package.title, package %>
+    <br>
+    <%= package.description %>
+    <br>
+    <%= number_to_currency(package.price, :unit => 'RM') %>
+    <br>
+    <%= form_tag update_package_path(id: package.id), method: :patch do%>
+    <div class="row" >
+    <span class="small-1 large-1 columns pull-left">
+      <%= label_tag "Quantity:", nil, class: "right inline" %>
+    </span>
+    <span class="small-1 large-1 columns pull-left">
+      <%= text_field_tag :quantity, package.quantity %>
+    </span>
+    <span class="small-1 large-1 columns pull-left">
+      <%= submit_tag 'Update', class: "button" %>
+    </span>
+  </div>
+    <%end%>
+    <br>
+    <%= link_to "Remove", remove_package_path(id: package), method: :delete %>
+    <br><br>
+  </li>
+<% end %>
+
+<% if @packages.empty? %>
+<% else %>
+  <!-- Order Total: <%= number_to_currency(total, :unit => 'RM') %> -->
+<% end %>
+
+<a href="#" class="button">Place Order</a>
+</ul>
+
+<%= form_for @order do |f| %>
+  <%= f.hidden_field :total, value: 1.00 %> 
+  <%= f.submit 'Checkout' %>
+  <% end %>
