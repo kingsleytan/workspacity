@@ -2,12 +2,11 @@ class User < ApplicationRecord
   # extend FriendlyId
   # friendly_id :username, use: :slugged
 
-  has_secure_password
+  has_secure_password validations: false
   has_many :services
   has_many :packages
   has_many :reviews
   has_many :votes
-  has_many :orders
   # mount_uploader :image, ImageUploader
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -25,10 +24,26 @@ class User < ApplicationRecord
   enum role: [:user, :moderator, :admin]
   # before_save :update_slug
 
-  private
-
-  def update_slug
-    self.slug = self.username.downcase.gsub(" ", "-") if self.username != nil && self.slug != self.username.downcase.gsub(" ", "-")
+  def self.from_omniauth(auth)
+    binding.pry
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.username = auth.info.name
+      user.email = auth.info.email
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
+    end
   end
+
+  def set_default_email
+  end
+
+  # private
+  #
+  # def update_slug
+  #   self.slug = self.username.downcase.gsub(" ", "-") if self.username != nil && self.slug != self.username.downcase.gsub(" ", "-")
+  # end
 
 end
