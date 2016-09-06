@@ -1,4 +1,11 @@
 class User < ApplicationRecord
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+
   # extend FriendlyId
   # friendly_id :username, use: :slugged
 
@@ -15,9 +22,9 @@ class User < ApplicationRecord
             presence: true,
             uniqueness: {message: "This email already exist."}
 
-  validates :username,
-            presence: true,
-            uniqueness: {message: "This username already exist."}
+  # validates :username,
+  #           presence: true,
+  #           uniqueness: {message: "This username already exist."}
 
   # validate :image_size
 
