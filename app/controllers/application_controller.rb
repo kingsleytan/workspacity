@@ -5,7 +5,7 @@ class ApplicationController <ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError do |exception|
    flash[:danger] = "You're not authorized"
-   redirect_to request.referrer || root_path
+   redirect_to request.referrer || '/'
  end
 
   # private

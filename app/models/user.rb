@@ -4,10 +4,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         :omniauthable, omniauth_providers: [:facebook]
   # extend FriendlyId
   # friendly_id :username, use: :slugged
 
-  has_secure_password validations: false
   has_many :services
   has_many :packages
   has_many :reviews
@@ -29,7 +29,6 @@ class User < ApplicationRecord
   enum role: [:user, :moderator, :admin]
 
   def self.from_omniauth(auth)
-    binding.pry
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
@@ -38,6 +37,14 @@ class User < ApplicationRecord
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
+    end
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
     end
   end
 
