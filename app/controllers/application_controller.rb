@@ -10,6 +10,7 @@ class ApplicationController <ActionController::Base
 
   # private
 
+
   # def authenticate!
   # unless current_user
   #   redirect_to root_path
@@ -17,9 +18,11 @@ class ApplicationController <ActionController::Base
   # end
   # end
   #
-  # def current_user
-  #   return unless session[:id]
-  #   @current_user ||= User.find_by(id: session[:id])
-  # end
-  # helper_method :current_user
+
+  def current_user
+    return unless session[:user_id]
+    @current_user ||= User.find_by(id: session[:user_id])
+  end
+  helper_method :current_user
+
 end

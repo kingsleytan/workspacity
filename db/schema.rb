@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905041820) do
+
+ActiveRecord::Schema.define(version: 20160902035952) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +32,14 @@ ActiveRecord::Schema.define(version: 20160905041820) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_models_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true, using: :btree
+end
+
+  create_table "authorizations", force: :cascade do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ordered_items", force: :cascade do |t|
@@ -42,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160905041820) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
+
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "status",     default: 0
@@ -99,6 +110,10 @@ ActiveRecord::Schema.define(version: 20160905041820) do
     t.integer  "phone"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
 end
