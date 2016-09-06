@@ -186,7 +186,6 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
-    orm_adapter (0.5.0)
     oauth2 (1.2.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -201,6 +200,7 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    orm_adapter (0.5.0)
     pg (0.18.4)
     pkg-config (1.1.7)
     pry (0.10.4)
@@ -373,7 +373,7 @@ DEPENDENCIES
   rails (~> 5.0.0)
   rails-controller-testing
   rails_12factor
-  rails_admin (>= 1.0.0.rc)
+  rails_admin
   redis
   remotipart!
   responders

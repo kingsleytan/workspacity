@@ -28,6 +28,7 @@ gem "carrierwave"
 gem 'devise'
 gem 'searchkick'
 gem 'httparty'
+gem 'rails_admin'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
