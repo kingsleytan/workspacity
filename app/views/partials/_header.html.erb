@@ -16,8 +16,8 @@
             <li id="New_service"><%= link_to "List your service", new_package_path %></li>
           <% else %>
             <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
-            <li id="New_user"><%= link_to "Login", new_session_path %></li>
-            <li id="New_user"><%= link_to "Register", new_user_path %></li>
+            <li id="New_user"><%= link_to "Login", new_user_session_path %></li>
+            <li id="New_user"><%= link_to "Register", new_user_registration_path %></li>
           <% end %>
 
         </ul>

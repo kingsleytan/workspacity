@@ -51,7 +51,6 @@ class CartsController < ApplicationController
 
   def clear_cart
     @cart = {}
-
   end
 
 end
