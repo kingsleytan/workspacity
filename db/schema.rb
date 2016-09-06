@@ -10,17 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-=======
 
 ActiveRecord::Schema.define(version: 20160902035952) do
 
->>>>>>> 1a990b633bc0a12f68706f2d66e3c47736ec9182
-
-ActiveRecord::Schema.define(version: 20160902035952) do
-
-<<<<<<< HEAD
-=======
   create_table "models", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -36,9 +28,9 @@ ActiveRecord::Schema.define(version: 20160902035952) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_models_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true, using: :btree
-end
+  end
 
->>>>>>> 1a990b633bc0a12f68706f2d66e3c47736ec9182
+
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider"
     t.string   "uid"
@@ -57,10 +49,6 @@ end
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
-<<<<<<< HEAD
-=======
-
->>>>>>> 1a990b633bc0a12f68706f2d66e3c47736ec9182
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "status",     default: 0

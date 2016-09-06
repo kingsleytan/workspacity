@@ -4,8 +4,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
-
   # extend FriendlyId
   # friendly_id :username, use: :slugged
 
@@ -29,7 +27,6 @@ class User < ApplicationRecord
   # validate :image_size
 
   enum role: [:user, :moderator, :admin]
-  # before_save :update_slug
 
   def self.from_omniauth(auth)
     binding.pry
@@ -46,11 +43,5 @@ class User < ApplicationRecord
 
   def set_default_email
   end
-
-  # private
-  #
-  # def update_slug
-  #   self.slug = self.username.downcase.gsub(" ", "-") if self.username != nil && self.slug != self.username.downcase.gsub(" ", "-")
-  # end
 
 end

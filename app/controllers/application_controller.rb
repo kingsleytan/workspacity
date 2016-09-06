@@ -11,6 +11,7 @@ class ApplicationController <ActionController::Base
   # private
 
 
+
   # def authenticate!
   # unless current_user
   #   redirect_to root_path

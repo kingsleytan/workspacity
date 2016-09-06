@@ -182,8 +182,14 @@ GEM
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
 <<<<<<< HEAD
+<<<<<<< HEAD
     orm_adapter (0.5.0)
 =======
+=======
+
+    orm_adapter (0.5.0)
+
+>>>>>>> 7fd9aad74c761d5149920d513abb0a57c0b894e5
     oauth2 (1.2.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -198,7 +204,11 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+<<<<<<< HEAD
 >>>>>>> master
+=======
+
+>>>>>>> 7fd9aad74c761d5149920d513abb0a57c0b894e5
     pg (0.18.4)
     pkg-config (1.1.7)
     pry (0.10.4)
