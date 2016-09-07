@@ -3,7 +3,11 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
+<<<<<<< HEAD
+         :recoverable, :rememberable, :trackable, :validatable
+=======
          :recoverable, :rememberable, :trackable, :validatable,
+>>>>>>> master
          :omniauthable, omniauth_providers: [:facebook]
   # extend FriendlyId
   # friendly_id :username, use: :slugged
@@ -37,6 +41,14 @@ class User < ApplicationRecord
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
+    end
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
     end
   end
 

@@ -4,6 +4,11 @@ class ApplicationController <ActionController::Base
 
 
   rescue_from Pundit::NotAuthorizedError do |exception|
+<<<<<<< HEAD
+   flash[:danger] = "You're not authorized"
+   redirect_to request.referrer || '/'
+ end
+=======
     flash[:danger] = "You're not authorized"
     # changed root_path to '/' because of routing error caused by rails_admin
     redirect_to request.referrer || '/'
@@ -15,6 +20,7 @@ class ApplicationController <ActionController::Base
     :user
   end
   helper_method :resource_name
+>>>>>>> master
 
   def resource
     @resource ||= User.new
