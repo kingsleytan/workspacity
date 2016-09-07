@@ -3,11 +3,12 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook]
   # extend FriendlyId
   # friendly_id :username, use: :slugged
 
-  has_secure_password validations: false
+
   has_many :services
   has_many :packages
   has_many :reviews
@@ -29,7 +30,6 @@ class User < ApplicationRecord
   enum role: [:user, :moderator, :admin]
 
   def self.from_omniauth(auth)
-    binding.pry
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
