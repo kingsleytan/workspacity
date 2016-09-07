@@ -19,7 +19,7 @@ before_action :authenticate_user!
   end
 
   def create
-    @package = Package.new(package_params)
+    @package = current_user.packages.new(package_params)
 
     if @package.save
       redirect_to packages_path
@@ -54,6 +54,6 @@ before_action :authenticate_user!
   private
 
   def package_params
-    params.require(:package).permit(:title, :description, :price, :location)
+    params.require(:package).permit(:title, :description, :price, :location, :service_id)
   end
 end

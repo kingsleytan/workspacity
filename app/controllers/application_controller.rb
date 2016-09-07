@@ -16,7 +16,6 @@ class ApplicationController <ActionController::Base
   end
   helper_method :resource_name
 
-
   def resource
     @resource ||= User.new
   end
@@ -32,19 +31,10 @@ class ApplicationController <ActionController::Base
   end
   helper_method :resource_class
 
-
-  # def authenticate!
-  # unless current_user
-  #   redirect_to root_path
-  #   flash[:danger] = "You need to login first"
+  # def current_user
+  #   return unless session[:id]
+  #   @current_user ||= User.find_by(id: session[:id])
   # end
-  # end
-  #
-
-  def current_user
-    return unless session[:user_id]
-    @current_user ||= User.find_by(id: session[:user_id])
-  end
-  helper_method :current_user
+  # helper_method :current_user
 
 end
