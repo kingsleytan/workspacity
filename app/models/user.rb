@@ -7,7 +7,7 @@ class User < ApplicationRecord
   # extend FriendlyId
   # friendly_id :username, use: :slugged
 
-  has_secure_password validations: false
+  # has_secure_password validations: false
   has_many :services
   has_many :packages
   has_many :reviews

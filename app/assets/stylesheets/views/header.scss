@@ -1,7 +1,7 @@
 #header {
   height: 52px;
   z-index: 1;
-}
+
 
 .navbar {
   margin-bottom: 0;
@@ -12,3 +12,10 @@
     padding-top: 15px;
     padding-bottom: 15px;
   }
+
+  @media (min-width: 768px){
+.navbar-right {
+    margin-right: 20px;
+}
+}
+}

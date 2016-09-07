@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+before_action :authenticate_user!
 
   def index
     @orders = Order.all
@@ -25,7 +26,6 @@ class OrdersController < ApplicationController
   private
   def order_params
     params.require(:order).permit(:user_id, :status, :total, :bill_id, :bill_url, :due_at, :paid_at)
-
   end
 
 end
