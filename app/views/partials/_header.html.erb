@@ -6,16 +6,18 @@
         <%= link_to "Workspacity", root_path, class: "navbar-brand" %>
       </div>
 
+
       <div class="collapse navbar-collapse" id="header-dropdown">
         <ul class="nav navbar-nav navbar-right">
-          <li id="About"><%= link_to "About", about_path %></li>
 
+          <li id="About"><%= link_to "About", about_path %></li>
+          <li id="New Package"><%= link_to "List your service", new_package_path %></li>
           <% if current_user %>
             <li > Welcome <strong><%= current_user.username %></strong>!</li>
             <li> <%= link_to "Sign out", signout_path, id: "sign_out" %></li>
             <li id="New_service"><%= link_to "List your service", new_package_path %></li>
           <% else %>
-            <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
+            <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, id: "sign_in" %></li>
             <li id="New_user"><%= link_to "Login", new_user_session_path %></li>
             <li id="New_user"><%= link_to "Register", new_user_registration_path %></li>
           <% end %>

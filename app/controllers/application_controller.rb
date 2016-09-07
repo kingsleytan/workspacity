@@ -4,12 +4,38 @@ class ApplicationController <ActionController::Base
 
 
   rescue_from Pundit::NotAuthorizedError do |exception|
+<<<<<<< HEAD
    flash[:danger] = "You're not authorized"
    redirect_to request.referrer || '/'
  end
+=======
+    flash[:danger] = "You're not authorized"
+    # changed root_path to '/' because of routing error caused by rails_admin
+    redirect_to request.referrer || '/'
+  end
 
-  # private
+  private
 
+  def resource_name
+    :user
+  end
+  helper_method :resource_name
+>>>>>>> master
+
+  def resource
+    @resource ||= User.new
+  end
+  helper_method :resource
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+  helper_method :devise_mapping
+
+  def resource_class
+    User
+  end
+  helper_method :resource_class
 
 
   # def authenticate!
