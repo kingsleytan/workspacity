@@ -26,6 +26,11 @@ class CartsController < ApplicationController
       @totalprice += package.price.to_f * package.quantity.to_i
     end
   end
+  # 
+  # def show
+  #   @package = Package.find_by(id: id_params)
+  #   @micropackages = @package.micropackages
+  # end
 
   def add_package
     if @cart[params[:id]]
