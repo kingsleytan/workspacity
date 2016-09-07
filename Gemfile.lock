@@ -343,7 +343,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt (~> 3.1.7)
   bootstrap-sass
   capybara
   carrierwave

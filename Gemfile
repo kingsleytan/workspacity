@@ -22,13 +22,13 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem "carrierwave"
 gem 'devise'
 gem 'searchkick'
 gem 'httparty'
 gem 'rails_admin', '>= 1.0.0.rc'
+gem 'omniauth-facebook'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do

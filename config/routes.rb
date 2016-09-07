@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    omniauth_callbacks: "users/omniauth_callbacks"
   }
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -34,8 +34,10 @@ Rails.application.routes.draw do
       :payment_callback
   end
 
-  match 'auth/:provider/callback', to: 'oauth#create', via: [:get, :post]
-  match 'auth/failure', to: 'oauth#failure', via: [:get, :post]
-  match 'signout', to: 'oauth#destroy', as: 'signout', via: [:get, :post]
+  # match 'auth/:provider/callback', to: 'oauth#create', via: [:get, :post]
+  # match 'auth/failure', to: 'oauth#failure', via: [:get, :post]
+  # match 'signout', to: 'oauth#destroy', as: 'signout', via: [:get, :post]
+
+
 
 end
