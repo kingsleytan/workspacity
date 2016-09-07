@@ -11,11 +11,132 @@
     justify-content: center;
   }
 
-  .h {
-    font-size: 20px;
-    align-content: center;
-    color: black;
+
+  .search-bar {
+    width: 230px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: transparent;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: 0.4s ease-in-out;
+    &:focus {
+      background-color: white;
+
+      width: 80%;
+    }
   }
+
+    .services{
+      background-color: white;
+      height: 20vh;
+      width: 100%;
+      background-position: 50% 90%;
+      background-: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .services-container{
+      flex: 1 0 25%;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    .how-it-works {
+      background-color: #CFCFCF;
+      height: 75vh;
+      width: 100%;
+      background-position: 50% 90%;
+      background-: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .features-container {
+      margin: 50px 0;
+    }
+
+    .feature-title {
+      color: white;
+    }
+
+    .features {
+      display: flex;
+      // flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 20px auto;
+      justify-content: center;
+    }
+
+    .feature {
+      flex: 1 0 30%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .app {
+      height: 75vh;
+      width: 100%;
+      background-position: 50% 90%;
+      background-: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .app-feature {
+      flex: 1 0 30%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .client {
+      background-color: #CFCFCF;
+      height: 20vh;
+      width: 100%;
+      background-position: 50% 90%;
+      background-: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sitemap {
+      background-color: black;
+      height: 75vh;
+      width: 100%;
+      background-position: 50% 90%;
+      background-: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer {
+      background-color: black;
+      height: 5vh;
+      width: 100%;
+      background-position: 50% 90%;
+      background-: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
 
   h1 {
     font-size: 30px;
@@ -23,109 +144,11 @@
   }
 
   h2 {
-    font-size: 20px;
+    font-size: 30px;
   }
 
-  .service {
-    background-color: white;
-    height: 20vh;
-    width: 100%;
-    background-position: 50% 90%;
-    background-: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .how {
-    background-color: #CFCFCF;
-    height: 75vh;
-    width: 100%;
-    background-position: 50% 90%;
-    background-: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .app {
-    height: 75vh;
-    width: 100%;
-    background-position: 50% 90%;
-    background-: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .client {
-    background-color: #CFCFCF;
-    height: 20vh;
-    width: 100%;
-    background-position: 50% 90%;
-    background-: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .sitemap {
-    background-color: black;
-    height: 75vh;
-    width: 100%;
-    background-position: 50% 90%;
-    background-: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .footer {
-    background-color: black;
-    height: 5vh;
-    width: 100%;
-    background-position: 50% 90%;
-    background-: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-
-  .features-container {
-    margin: 50px 0;
-  }
-
-  .feature-title {
-    color: white;
-  }
-
-  .features {
-    display: flex;
-    // flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 50px auto;
-    justify-content: center;
-  }
-
-  .feature {
-    flex: 0 0 280px;
-    margin: 20px 10px;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .feature2 {
-    flex: 0 0 280px;
-    margin: 20px 10px;
-    justify-content: center;
-    align-items: center;
+  h3 {
+    font-size: 16px;
   }
 
   hr {
@@ -134,19 +157,17 @@
     border-width: 3px;
   }
 
-  h3 {
-    font-size: 16px;
-  }
-
-  h4 {
-    font-size: 8px;
-    color: white;
-  }
-
   p {
     font-size: 14px;
     line-height: 1.5;
   }
+
+
+
+
+
+
+
 
 
   .light-red {
@@ -224,9 +245,10 @@
     .features {
       max-width: 600px;
     }
-  }
+    .services{
+      max-width: 100%;
+    }
 
-  @media all and (max-width: 1199px) {
     .image-box {
       justify-content: center;
     }

@@ -11,7 +11,6 @@ class ApplicationController <ActionController::Base
 
   private
 
-
   def resource_name
     :user
   end

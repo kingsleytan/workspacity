@@ -13,7 +13,7 @@ class Shipping < ApplicationRecord
       item_number: package.id,
       quantity: '1'
     }
-  
+
   end
 
 end

@@ -1,0 +1,64 @@
+.devise{
+
+  .title{
+    font-size: 30px;
+    color: grey;
+    text-align: center;
+    flex: auto;
+  }
+  .form-container{
+    align-items: center;
+  }
+
+  .form-title{
+    font-size: 25px;
+  }
+
+  .form-small{
+    font-size: 18px;
+  }
+
+  .form-fill {
+    width: 388px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: transparent;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: 0.4s ease-in-out;
+    &:focus {
+      background-color: white;
+      width: 80%;
+    }
+  }
+  .button {
+    background-color: #0ABAB5;
+    border: none;
+    color: #555555;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+  .button:hover {
+    background-color: #008CBA;
+    color: white;
+  }
+
+  .shared-partials{
+    font-size: 15px;
+  }
+
+}
+
+.alert {
+  background-color: red;
+  color: white;
+}
